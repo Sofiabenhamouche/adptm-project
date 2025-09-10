@@ -1,0 +1,29 @@
+{
+  "pdb": "1K24",
+  "origin": [
+    30.40293564470896,
+    -2.4021204823111915,
+    9.87887950289441
+  ],
+  "normal": [
+    0.25603819159536434,
+    0.0,
+    0.9666666666657
+  ],
+  "center": -11.5,
+  "Q_max": 0.8395833333333333,
+  "d_in": -23.5,
+  "d_out": 1.5,
+  "thickness_A": 25.0,
+  "dirs": 30,
+  "rsa_mode": "hard",
+  "rsa_threshold": 0.15,
+  "rsa_quantile": null,
+  "win_A": 16.0,
+  "bin_A": 1.0,
+  "widen_step_A": 1.0,
+  "max_half_extra_A": 30.0,
+  "min_seg_len": 16,
+  "lambda_penalty": 0.5,
+  "segments": []
+}

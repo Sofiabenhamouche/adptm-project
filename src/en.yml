@@ -1,0 +1,12 @@
+name: en
+channels:
+  - conda-forge
+  - bioconda
+  - nodefaults
+dependencies:
+  - python>=3.11
+  - numpy
+  - pandas
+  - biopython
+  - conda-forge::dssp
+  - bioconda::biolib
