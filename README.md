@@ -17,7 +17,7 @@ Download the ZIP repository.
 In a proper folder, unzip it.
 Change your current directory to the root of the project
 ```bash
-cd tmh-project
+cd adptm-project
 ```
 
 ### Virtual environment
