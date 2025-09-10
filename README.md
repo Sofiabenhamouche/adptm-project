@@ -109,8 +109,8 @@ Each protein analyzed by the pipeline generates two main output files:
 
 open pymol
 ```pml
-run src/membrane_viz.py
-memviz data/1K24.pdb, results/1K24_result.json
+run /path/to/adptm-project/src/membrane_viz.py
+memviz /path/to/adptm-project/data/protein.pdb, /path/to/adptm-project/outputs/protein_result.json
 ```
 ### PyMOL output
 
