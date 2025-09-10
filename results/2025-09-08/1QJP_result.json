@@ -1,0 +1,29 @@
+{
+  "pdb": "1QJP",
+  "origin": [
+    27.282211554311488,
+    19.844992722037937,
+    35.83555463804816
+  ],
+  "normal": [
+    0.9236559681764998,
+    -0.20306317354494477,
+    0.324999999999675
+  ],
+  "center": 2.5,
+  "Q_max": 0.7962962962962963,
+  "d_in": -7.5,
+  "d_out": 14.5,
+  "thickness_A": 22.0,
+  "dirs": 40,
+  "rsa_mode": "hard",
+  "rsa_threshold": 0.15,
+  "rsa_quantile": null,
+  "win_A": 20.0,
+  "bin_A": 1.0,
+  "widen_step_A": 1.0,
+  "max_half_extra_A": 50.0,
+  "min_seg_len": 16,
+  "lambda_penalty": 1.0,
+  "segments": []
+}
