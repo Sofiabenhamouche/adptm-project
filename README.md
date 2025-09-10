@@ -1,7 +1,7 @@
 BENHAMOUCHE Sofia M2BI - 2025/2026  
 Projet court - Assignation et détection des parties transmembranaires d'une protéine  
 
-# TMH Project
+# adptm Project
 
 This repository implements a **pipeline to detect transmembrane regions** in proteins and estimate the position/thickness of the membrane using structural and solvent accessibility data.  
 
@@ -23,19 +23,12 @@ cd tmh-project
 ### Virtual environment
 We recommend using **Pixi** to manage dependencies.  
 
-Example with pixi:
-```bash
-pixi install 
-```
-
 Required dependencies (core):
 - Python ≥ 3.11  
 - numpy, pandas, scipy  
 - biopython (for PDB parsing)  
 - DSSP (`mkdssp` binary must be installed)  
-- PyMOL (for visualization, either licensed or open-source build)  
-
----
+ ---
 
 ## Repository structure
 
@@ -46,7 +39,7 @@ tmh-project/
 │  └─ 1K24.dssp
 │
 ├─ results/           # Auto-generated outputs
-│  ├─ 2025-09-08/     # Dated subfolders
+│  ├─ 2025-09-08/     
 │  │   ├─ 1K24_result.json
 │  │   ├─ 1K24_annot.csv
 │  │   └─ 1K24_view.png
@@ -56,7 +49,6 @@ tmh-project/
 │  ├─ detector.py     # Membrane detection algorithm
 │  ├─ io_dssp.py      # PDB/DSSP I/O & RSA computation
 │  ├─ membrane_viz.py # PyMOL visualization
-│  ├─ __init__.py
 │  └─ en.yml          # Pixi environment file (install with: pixi install -f src/en.yml)
 │
 ├─ bin/               # External scripts (wrappers: mkdssp, pymol…)
@@ -71,14 +63,18 @@ tmh-project/
 ### 1. Generate DSSP file
 Install `mkdssp` and run:
 ```bash
-mkdssp data/1K24.pdb data/1K24.dssp
+pixi add conda-forge::dssp
+pixi run -- mkdssp --version
+```
+```bash
+pixi run mkdssp data/protein.pdb data/protein.dssp
 ```
 
 ### 2. Run detection pipeline
 ```bash
 pixi run python src/main.py \
-  --pdb data/1K24.pdb \
-  --dssp data/1K24.dssp \
+  --pdb data/protein.pdb \
+  --dssp data/protein.dssp \
   --pdbid 1K24 \
   --dirs 30 --win 16 --bin 1 \
   --rsa-th 0.15 \
@@ -86,11 +82,32 @@ pixi run python src/main.py \
   --lambda-penalty 0.7 -v
 ```
 
-This produces:
-- `results/1K24_result.json` → summary (origin, normal, d_in, d_out, Q, thickness…)  
-- `results/1K24_annot.csv` → per-residue annotations with TM flags  
+### Outputs
+
+Each protein analyzed by the pipeline generates two main output files:
+
+- **`<PDBID>_result.json`**  
+  A JSON summary of the detected membrane placement, containing:
+  - `origin`: coordinates of the membrane center
+  - `normal`: orientation vector of the membrane
+  - `d_in`, `d_out`: inner and outer boundary positions
+  - `thickness`: membrane thickness (Å)
+  - `Q`: quality score of the detection
+
+   This file can be loaded with `membrane_viz.py` to visualize the membrane in PyMOL.
+
+- **`<PDBID>_annot.csv`**  
+  A CSV table with per-residue annotations:
+  - Residue index and chain
+  - Amino acid type
+  - Cα coordinates
+  - Solvent accessibility (RSA)
+  - Transmembrane flag (`1 = TM`, `0 = non-TM`)
+
 
 ### 3. Visualize in PyMOL
+
+open pymol
 ```pml
 run src/membrane_viz.py
 memviz data/1K24.pdb, results/1K24_result.json
@@ -128,7 +145,7 @@ This allows immediate inspection of the detected membrane orientation and thickn
 | `--widen-step`       | 1.0 Å   | Increment step when widening the membrane slab. |
 | `--max-half-extra`   | 30.0 Å  | Maximum additional **half-thickness** allowed beyond `win/2` during widening. |
 | `--min-seg`          | 16 aa   | Minimal transmembrane segment length to be reported. |
-| `--lambda-penalty`   | 0.8     | Penalty weight for hydrophiles included inside the slab. |
+| `--lambda-penalty`   | 1     | Penalty weight for hydrophiles included inside the slab. |
 | `--out`              | outputs | Output directory for results (created if missing). |
 | `-v`, `--verbose`    | False   | Enable verbose logging of progress and scores. |
 
