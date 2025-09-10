@@ -22,7 +22,10 @@ cd adptm-project
 
 ### Virtual environment
 We recommend using **Pixi** to manage dependencies.  
-
+```bash
+pixi install
+pixi init
+```
 Required dependencies (core):
 - Python ≥ 3.11  
 - numpy, pandas, scipy  
@@ -35,14 +38,14 @@ Required dependencies (core):
 ```
 adptm-project/
 ├─ data/              # Input files (PDB, DSSP, FASTA…)
-│  ├─ 1K24.pdb
-│  └─ 1K24.dssp
+│  ├─ prot.pdb
+│  └─ prot.dssp
 │
 ├─ results/           # Auto-generated outputs
 │  ├─ 2025-09-08/     
-│  │   ├─ 1K24_result.json
-│  │   ├─ 1K24_annot.csv
-│  │   └─ 1K24_view.png
+│  │   ├─ prot_result.json
+│  │   ├─ prot_annot.csv
+│  │   └─ prot_view.png
 │
 ├1─ src/               # Source code
 │  ├─ main.py         # CLI pipeline entry point
