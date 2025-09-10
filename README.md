@@ -11,14 +11,14 @@ The workflow is inspired by *Tusnády, Dosztányi & Simon (2004, Bioinformatics)
 
 ##  Installation
 
-### Clone the repository
-```bash
-git clone https://github.com/<your-repo>/tmh-project.git
-cd tmh-project
-```
+### Download the repository
+
 Download the ZIP repository.
 In a proper folder, unzip it.
 Change your current directory to the root of the project
+```bash
+cd tmh-project
+```
 
 ### Virtual environment
 We recommend using **Pixi** to manage dependencies.  
@@ -71,7 +71,7 @@ tmh-project/
 ### 1. Generate DSSP file
 Install `mkdssp` and run:
 ```bash
-mkdssp -i data/1K24.pdb -o data/1K24.dssp
+mkdssp data/1K24.pdb data/1K24.dssp
 ```
 
 ### 2. Run detection pipeline
