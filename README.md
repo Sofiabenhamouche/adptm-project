@@ -33,7 +33,7 @@ Required dependencies (core):
 ## Repository structure
 
 ```
-tmh-project/
+adptm-project/
 ├─ data/              # Input files (PDB, DSSP, FASTA…)
 │  ├─ 1K24.pdb
 │  └─ 1K24.dssp
@@ -79,7 +79,7 @@ pixi run python src/main.py \
   --dirs 30 --win 16 --bin 1 \
   --rsa-th 0.15 \
   --widen-step 1 --max-half-extra 30 \
-  --lambda-penalty 0.7 -v
+  --lambda-penalty 1 -v
 ```
 
 ### Outputs
