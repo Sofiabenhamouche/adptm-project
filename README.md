@@ -32,7 +32,13 @@ Required dependencies (core):
 - biopython (for PDB parsing)  
 - DSSP (`mkdssp` binary must be installed)  
  ---
+```bash
+pixi add python>=3.11 \
+    numpy pandas biopython matplotlib scipy \
+    conda-forge::dssp conda-forge::gemmi \
+    conda-forge::pymol-open-source
 
+```
 ## Repository structure
 
 ```
