@@ -124,6 +124,8 @@ Running the visualization script in PyMOL produces:
 - **Protein cartoon** → displayed in cyan for context.  
 
 This allows immediate inspection of the detected membrane orientation and thickness.
+![PyMOL membrane visualization](outputs/1K24.png)
+
 
 
 ## Command-line options
