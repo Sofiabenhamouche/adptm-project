@@ -9,11 +9,6 @@ Displays two planes (CGO) representing the membrane boundaries:
 - Normal vector (blue arrow)
 - Center point (yellow sphere)
 
-Usage in PyMOL:
----------------
-run /mnt/c/Users/sofia/projet_ss/membrane_viz.py
-memviz /mnt/c/Users/sofia/projet_ss/1K24.pdb, /mnt/c/Users/sofia/projet_ss/outputs/1K24_result.json
-
 Optional:
 memviz <pdb>, <json>, size=200, alpha=0.3
 """
