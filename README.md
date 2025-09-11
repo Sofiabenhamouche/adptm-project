@@ -82,7 +82,9 @@ pixi run python src/main.py \
   --dirs 30 --win 16 --bin 1 \
   --rsa-th 0.15 \
   --widen-step 1 --max-half-extra 30 \
-  --lambda-penalty 1 -v
+  --lambda-penalty 1 -v \
+  --out results
+
 ```
 
 ### Outputs
@@ -113,7 +115,7 @@ Each protein analyzed by the pipeline generates two main output files:
 open pymol
 ```pml
 run /path/to/adptm-project/src/membrane_viz.py
-memviz /path/to/adptm-project/data/protein.pdb, /path/to/adptm-project/outputs/protein_result.json
+memviz /path/to/adptm-project/data/protein.pdb, /path/to/adptm-project/results/outputs/protein_result.json
 ```
 ### PyMOL output
 
